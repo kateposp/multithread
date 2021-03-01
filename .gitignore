@@ -1,0 +1,4 @@
+.idea/
+cmake-build-debug
+cpplint
+archive_source
