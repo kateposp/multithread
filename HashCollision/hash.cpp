@@ -106,7 +106,7 @@ void FindPrefix(int length,
 
     int64_t hash = Hash(prefix, p, module);
     int64_t prefix_hash = static_cast<__int128_t>(hash) * p_in_power % module;
-    int64_t suffix_hash = (full_string_hash - prefix_hash) % module;
+    int64_t suffix_hash = (full_string_hash - prefix_hash + module) % module;
 
     std::string suffix = suffixes->Find(suffix_hash);
     if (!suffix.empty()) {

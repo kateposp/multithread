@@ -5,8 +5,8 @@
 const int p = 31;
 
 const int64_t small_module = 99971;
-const int64_t middle_module = 1e9 + 7;
-const int64_t big_module = 1e12;
+const int64_t middle_module = 1'000'000'007;
+const int64_t big_module = 1'000'000'000'000;
 
 TEST(HashCollisionOneThread, SimpleTest) {
   std::string answer = FindCollision("aaaaaa", 31, small_module, 1);

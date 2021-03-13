@@ -1,6 +1,6 @@
 #include "hash_map.h"
 
-HashMap::HashMap() : mutexes(50), blocks(5000000) {}
+HashMap::HashMap() : mutexes(50), blocks(1000000) {}
 
 void HashMap::Add(int64_t hash, const std::string& s) {
   int64_t block_number = hash % static_cast<int64_t>(blocks.size());
@@ -11,9 +11,6 @@ void HashMap::Add(int64_t hash, const std::string& s) {
 }
 
 std::string HashMap::Find(int64_t hash) const {
-  if (hash < 0) {
-    return std::string();
-  }
   int64_t block_number = hash % static_cast<int64_t>(blocks.size());
   for (const auto& hash_string : blocks[block_number]) {
     if (hash_string.first == hash) {
